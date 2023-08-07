@@ -36,7 +36,7 @@
         <script>
             function escapeAndFormat(textToFormat){
                 
-                return textToFormat.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;').replaceAll(/(https?:\/\/)?([a-z0-9]+)?\.([a-z0-9]+)\S+(?<!\.|\,)/gi,match => match.toLowerCase().startsWith('http') ? '<a style="text-decoration: underline; color:inherit;" href="'+match+'">'+match+'</a>' : '<a style="text-decoration: underline; color:inherit;" href="//'+match+'">'+match+'</a>').replaceAll('\n','<br/>');
+                return textToFormat.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll(/(https?:\/\/)?([a-z0-9]+)?\.([a-z0-9]+)\S+(?<!\.|\,)/gi,match => match.toLowerCase().startsWith('http') ? '<a style="text-decoration: underline; color:inherit;" href="'+match+'">'+match+'</a>' : '<a style="text-decoration: underline; color:inherit;" href="//'+match+'">'+match+'</a>').replaceAll(/#[a-z0-9]+/gi,match => '<a style="text-decoration: underline; color:inherit;" href="https://cohost.org/rc/tagged/'+match.substring(1)+'">'+match+'</a>').replaceAll("'", '&#039;').replaceAll('\n','<br/>');
             }
             
             document.getElementById('cheetbox').addEventListener('input',function(){
